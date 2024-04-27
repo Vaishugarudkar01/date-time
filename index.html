@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Date and Time</title>
+    <style>
+ body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FFDEE9;
+background-image: linear-gradient(0deg, #e2799c 0%, #4ff1e4 50%, #fbebeb 100%);
+
+
+  } 
+
+.main-container{
+   
+             margin-top: 100px;
+            height: 350px;
+            width: 350px;
+            border: 1px solid black;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px 2px #acacac;
+            background-color: rgb(244, 26, 164);
+        }
+       
+        .heading1{
+            text-align: center;
+            text-decoration: wavy;
+            color: white;
+           
+        }
+        .margin{
+            margin-top: 30px;
+        }
+        .dates{
+            margin-left: 15px;
+        }
+        .infomation{
+            padding: 4px;
+            margin: 20px;
+            border-radius: 5px;
+        }
+        .btn{
+            border: 1px solid black;
+            padding: 5px 10px;
+            border-radius: 10px;
+            margin: 20px 50px;
+
+        }
+        .result{
+            text-align: center;
+            color: #fff;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <b><h2 class="heading1 margin"> Calculator for DATE </h2></b>
+        <div class="dates">
+        <input type="date" class="infomation" id="date1">
+        <input type="date" class="infomation" id="date2">
+        </div><br/>
+        <div class="calc  heading1">
+        <button onclick="calculate()" class="btn ">Calculate</button>
+        <button onclick="reset()" class="btn ">Reset</button>
+        </div>
+        <div class="result" id="result">ANS:</div>
+      </div>
+
+      <script>
+        function calculate() {
+          const date1 = new Date(document.getElementById('date1').value);
+          const date2 = new Date(document.getElementById('date2').value);
+          const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+          const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+          document.getElementById('result').innerHTML = diffDays + ' days';
+        }
+        function reset(){
+          document.getElementById("date1").value = "";
+          document.getElementById("date2").value = "";
+          document.getElementById("result").innerHTML = "";
+        }
+      </script>
+</body>
+</html>
